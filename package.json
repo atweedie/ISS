@@ -1,0 +1,16 @@
+{
+  "name": "iss",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ISS.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "node-fetch": "^1.7.2"
+  }
+}
