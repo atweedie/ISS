@@ -1,66 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="map"></div>
-    <script>
-      var map;
-      var issCoords;
 
-      (function() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            issCoords = JSON.parse(this.responseText);
-            window.console.warn(issCoords);
-          }
-        };
-        xhttp.open("GET", "ajax", true);
-        xhttp.send();
-      })();
+<head>
+    <title>ISS Tracker</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+    </script>
+    <script src="js/main.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiTQyq4tQT_2U6jPuUOtP5GCXExoJfDWk&callback=initMap" type="text/javascript"></script>
+</head>
 
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 1,
-          styles: [{
-            featureType: "all",
-            elementType: "all",
-            stylers: [{ saturation: -100 }]
-          }],
-          center: new google.maps.LatLng(issCoords[0]['lat'],issCoords[0]['lng']),
-          mapTypeId: 'terrain'
-        });
-        var marker = new google.maps.Marker({
-          position: issCoords[issCoords.length - 1],
-          map: map,
-          title: 'Iss Position'
-        });
-        var flightPath = new google.maps.Polyline({
-          path: issCoords,
-          geodesic: true,
-          strokeColor: '#FF0000',
-          strokeOpacity: 1.0,
-          strokeWeight: 2
-        });
-        flightPath.setMap(map);
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiTQyq4tQT_2U6jPuUOtP5GCXExoJfDWk&callback=initMap" type="text/javascript"> 
-    </script>
-  </body>
+<body>
+    <div class="container">
+        <div id="map" class="map"></div>
+        <div class="sidebar">
+            <div class="flex center sa" id="distance">
+                <h3>Distance:</h3>
+                <p></p>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
