@@ -1,32 +1,32 @@
 {
-  "name": "iss",
-  "version": "1.0.0",
-  "description": "",
-  "main": "ISS.js",
-  "watch": {
-    "build": "./node_modules/.bin/babel  ./src --experimental --source-maps-inline -d ./dist",
-    "start": "node dist/server.js"
-  },
-  "scripts": {
-    "build": "./node_modules/.bin/babel  ./src --experimental --source-maps-inline -d ./dist",
-    "start": "node dist/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "npm-watch"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "babel": "^6.23.0",
-    "babel-node-modules": "^0.0.1",
-    "babel-register": "^6.26.0",
-    "ejs": "^2.5.7",
-    "express": "^4.15.4",
-    "gulp": "^3.9.1",
-    "node-fetch": "^1.7.2"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "npm-watch": "^0.3.0"
-  }
+    "name": "iss",
+    "version": "1.0.0",
+    "description": "",
+    "main": "ISS.js",
+    "watch": {
+        "build": "./node_modules/.bin/babel  ./src --experimental --source-maps-inline -d ./build",
+        "start": "node build/server.js"
+    },
+    "scripts": {
+        "build": "./node_modules/.bin/babel  ./src --experimental --source-maps-inline -d ./build",
+        "start": "node build/server.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "watch": "npm-watch"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "babel": "^6.23.0",
+        "babel-node-modules": "^0.0.1",
+        "babel-register": "^6.26.0",
+        "ejs": "^2.5.7",
+        "express": "^4.15.4",
+        "gulp": "^3.9.1",
+        "node-fetch": "^1.7.2"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-preset-env": "^1.7.0",
+        "npm-watch": "^0.3.0"
+    }
 }

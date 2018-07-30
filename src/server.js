@@ -1,3 +1,4 @@
+import Orbit from './classes/orbit';
 import issLocation from './server/services/issLocation';
 
 const express = require('express');
@@ -12,4 +13,10 @@ app.get('/', function(req, res) {
 
 app.listen(8080);
 
-issLocation();
+// const currentCoordinates = issLocation();
+// console.log(currentCoordinates);
+
+// const iss = new Orbit(405000);
+// iss.setLatitude(currentCoordinates.latitude);
+// iss.setLongitude(currentCoordinates.longitude);
+// console.log(`Latitude: ${iss.getLatitude()} Longitude: ${iss.getLongitude}`);
