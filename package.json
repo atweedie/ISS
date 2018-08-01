@@ -16,15 +16,15 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "babel": "^6.23.0",
-        "babel-node-modules": "^0.0.1",
-        "babel-register": "^6.26.0",
         "ejs": "^2.5.7",
         "express": "^4.15.4",
         "gulp": "^3.9.1",
         "node-fetch": "^1.7.2"
     },
     "devDependencies": {
+        "babel": "^6.23.0",
+        "babel-node-modules": "^0.0.1",
+        "babel-register": "^6.26.0",
         "babel-cli": "^6.26.0",
         "babel-preset-env": "^1.7.0",
         "npm-watch": "^0.3.0"

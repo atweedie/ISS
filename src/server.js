@@ -13,10 +13,11 @@ app.get('/', function(req, res) {
 
 app.listen(8080);
 
-// const currentCoordinates = issLocation();
-// console.log(currentCoordinates);
+const iss = new Orbit(405000);
 
-// const iss = new Orbit(405000);
-// iss.setLatitude(currentCoordinates.latitude);
-// iss.setLongitude(currentCoordinates.longitude);
-// console.log(`Latitude: ${iss.getLatitude()} Longitude: ${iss.getLongitude}`);
+issLocation()
+    .then(response => {
+        iss.setLatitude(response.latitude);
+        iss.setLongitude(response.longitude);
+        console.log(`Latitude: ${iss.getLatitude()} Longitude: ${iss.getLongitude()}`);
+    });
