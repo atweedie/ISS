@@ -2,7 +2,7 @@
     "name": "iss",
     "version": "1.0.0",
     "description": "",
-    "main": "ISS.js",
+    "main": "server.js",
     "watch": {
         "build": "./node_modules/.bin/babel  ./src --experimental --source-maps-inline -d ./build",
         "start": "node build/server.js"
