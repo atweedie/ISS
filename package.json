@@ -3,15 +3,12 @@
     "version": "1.0.0",
     "description": "",
     "main": "server.js",
-    "watch": {
-        "build": "./node_modules/.bin/babel  ./src --experimental --source-maps-inline -d ./build",
-        "start": "node build/server.js"
-    },
+
     "scripts": {
-        "build": "./node_modules/.bin/babel  ./src --experimental --source-maps-inline -d ./build",
-        "start": "node build/server.js",
+        "build": "babel src --out-dir lib --source-maps inline --copy-files",
+        "start": "node lib/server.js",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "watch": "npm-watch"
+        "watch": "babel --watch src --out-dir lib --source-maps inline --copy-files"
     },
     "author": "",
     "license": "ISC",

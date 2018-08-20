@@ -1,0 +1,42 @@
+#map
+{
+    height: 100%;
+}
+
+html,
+body
+{
+    height: 100%;  margin: 0;  padding: 0;
+}
+
+.map
+{
+    grid-area: map;  grid-column: 1;
+}
+.sidebar
+{
+    color: white;
+    border-left: solid 3px #3b3b3b;background: #2b2b2b;
+
+    grid-area: sidebar;  grid-column: 2;
+}
+
+.container
+{
+    display: grid;
+
+    grid-template-columns: 80vw 20vw;  grid-template-rows: 100vh;  grid-template-areas: 'map sidebar';
+}
+
+.flex
+{
+    display: flex;
+}
+.flex.sa
+{
+    justify-content: space-around;
+}
+.flex.center
+{
+    align-items: center;
+}

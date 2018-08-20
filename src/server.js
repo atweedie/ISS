@@ -1,10 +1,13 @@
+import path from 'path';
 import tracker from './server/routes/tracker';
+
+const viewDirectory = '/app/views';
 
 const express = require('express');
 const app = express();
 
 app.use(express.static('app/public'));
-app.set('views', './build/app/views')
+app.set('views', path.join(__dirname, viewDirectory));
 app.set('view engine', 'ejs');
 
 app.use('/', tracker);
