@@ -8,6 +8,9 @@ function getIssLoc() {
         })
         .then(json => {
             return json.iss_position
+        })
+        .catch(error => {
+            console.log(error);
         });
 }
 

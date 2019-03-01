@@ -1,16 +1,13 @@
 import * as constants from '../constants/universalConstants';
+import {groundDistance} from '../helpers/calculations';
 
 export default class Orbit {
     constructor(altitude) {
         this.altitude = altitude;
-        this.orbitalVelocity = Math.sqrt(
-            (constants.gravitationalConstant * constants.earthMass)/(constants.earthRadius + altitude)
-        );
     }
 
     getOrbitalVelocity() {
-        return this.orbitalVelocity;
-    }
+        return (constants.gravitationalConstant * constants.earthMass)/(constants.earthRadius + this.altitude)    }
 
     getAltitude() {
         return this.altitude;

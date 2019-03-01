@@ -7,6 +7,7 @@ var circle;
 var distance;
 
 $(document).ready(function() {
+    initMap();
     ajax();
 });
 
@@ -28,10 +29,10 @@ function setDistance(distance) {
 function ajax() {
     $.getJSON('/ajax', function(data) {
         issCoords = data['coordinates'];
-        distance = data['distance'];
+        // distance = data['distance'];
         marker.setPosition(issCoords[issCoords.length - 1]);
         flightPath.setPath(issCoords);
-        setDistance(distance);
+        // setDistance(distance);
     });
 };
 
