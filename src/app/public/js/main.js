@@ -6,38 +6,21 @@ var marker;
 var circle;
 var distance;
 
-$(document).ready(function() {
-    initMap();
-    ajax();
-});
-
 function setDistance(distance) {
     $('#distance > p').empty().append(distance + ' Miles')
-    if (distance < 1000) {
-        circle.setOptions({
-            fillColor: '#00AA30',
-            strokeColor: '#005D1A'
-        });
-    } else {
-        circle.setOptions({
-            fillColor: '#F61919',
-            strokeColor: '#AA0000'
-        });
-    }
 }
 
 function ajax() {
-    $.getJSON('/ajax', function(data) {
+    $.getJSON('/api/history', function(data) {
         issCoords = data['coordinates'];
-        // distance = data['distance'];
+        distance = data['distance'];
         marker.setPosition(issCoords[issCoords.length - 1]);
         flightPath.setPath(issCoords);
-        // setDistance(distance);
+        setDistance(distance);
     });
 };
 
 function initMap() {
-
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 2,
         styles: [{
@@ -204,25 +187,6 @@ function initMap() {
         map: map,
         title: 'ISS Location'
     });
-
-    hackOldham = new google.maps.Marker({
-        position: {
-            lat: 53.5421579,
-            lng: -2.1092045
-        },
-        icon: '/images/cog_map_marker.png',
-        map: map,
-        title: 'Hack Oldham'
-    });
-
-    circle = new google.maps.Circle({
-        map: map,
-        radius: 1287440, // 1000 miles in metres
-        fillColor: '#F61919',
-        strokeColor: '#AA0000',
-        strokeWeight: 1
-    });
-    circle.bindTo('center', hackOldham, 'position');
 
     flightPath = new google.maps.Polyline({
         path: issCoords,

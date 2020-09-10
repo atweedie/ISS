@@ -4,6 +4,7 @@ import {groundDistance} from '../helpers/calculations';
 export default class Orbit {
     constructor(altitude) {
         this.altitude = altitude;
+        this.locationHistory = [];
     }
 
     getOrbitalVelocity() {
@@ -19,6 +20,23 @@ export default class Orbit {
 
     getLongitude() {
         return this.longitude;
+    }
+
+    getLocationHistory() {
+        return this.locationHistory;
+    }
+
+    updateLocationHistory() {
+        const currentLocation = {
+            lat: parseFloat(this.latitude),
+            lng: parseFloat(this.longitude)
+        }
+
+        if (this.locationHistory.length >= 20) {
+            this.locationHistory.pop();
+        }
+
+        this.locationHistory.push(currentLocation);
     }
 
     setAltitude(altitude) {
